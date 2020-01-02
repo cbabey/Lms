@@ -1,7 +1,7 @@
 self.__precacheManifest = [
   {
-    "revision": "d136a071cf09ba5ab8dc2ada1ab04015",
-    "url": "/vue-argon-dashboard/img/theme/bootstrap.jpg"
+    "revision": "1f533d2fdc40493ee834dd8e4288220c",
+    "url": "/vue-argon-dashboard/img/theme/angular.jpg"
   },
   {
     "revision": "cee60cfd101f9b3d2aae0e819ec8b267",
@@ -16,8 +16,8 @@ self.__precacheManifest = [
     "url": "/vue-argon-dashboard/img/theme/team-2-800x800.jpg"
   },
   {
-    "revision": "8bd61c889f1b60782205",
-    "url": "/vue-argon-dashboard/js/demo.012ec691.js"
+    "revision": "abcc795386f629475710",
+    "url": "/vue-argon-dashboard/js/demo.4d84a03a.js"
   },
   {
     "revision": "54e3f3c414bd8e7234bae3ee3be950e5",
@@ -40,28 +40,28 @@ self.__precacheManifest = [
     "url": "/vue-argon-dashboard/img/theme/vue.jpg"
   },
   {
-    "revision": "5c8550b0ed579bb290489aa26f0ed87f",
+    "revision": "641f2f8b5b1de9cb3bd52ceaf8f3cca1",
     "url": "/vue-argon-dashboard/index.html"
-  },
-  {
-    "revision": "50dd5fdc839dfc16739b15370650485c",
-    "url": "/vue-argon-dashboard/img/theme/react.jpg"
   },
   {
     "revision": "3b8c576082e5ca27bae21a839f1290f6",
     "url": "/vue-argon-dashboard/img/theme/sketch.jpg"
   },
   {
-    "revision": "855f41a7dc9c05942596",
-    "url": "/vue-argon-dashboard/js/app.da6f4381.js"
+    "revision": "50dd5fdc839dfc16739b15370650485c",
+    "url": "/vue-argon-dashboard/img/theme/react.jpg"
+  },
+  {
+    "revision": "7253796f762335e7b2ac",
+    "url": "/vue-argon-dashboard/js/app.e73ea9b2.js"
   },
   {
     "revision": "c1733565b32b585676302d4233c39da8",
     "url": "/vue-argon-dashboard/fonts/nucleo-icons.c1733565.eot"
   },
   {
-    "revision": "1f533d2fdc40493ee834dd8e4288220c",
-    "url": "/vue-argon-dashboard/img/theme/angular.jpg"
+    "revision": "d136a071cf09ba5ab8dc2ada1ab04015",
+    "url": "/vue-argon-dashboard/img/theme/bootstrap.jpg"
   },
   {
     "revision": "0b8a30b10cbe7708d5f3a4b007c1d665",
@@ -96,11 +96,11 @@ self.__precacheManifest = [
     "url": "/vue-argon-dashboard/fonts/nucleo-icons.2569aaea.woff"
   },
   {
-    "revision": "8bd61c889f1b60782205",
-    "url": "/vue-argon-dashboard/css/demo.19d75459.css"
+    "revision": "abcc795386f629475710",
+    "url": "/vue-argon-dashboard/css/demo.d6c03d9c.css"
   },
   {
-    "revision": "855f41a7dc9c05942596",
-    "url": "/vue-argon-dashboard/css/app.a31cc039.css"
+    "revision": "7253796f762335e7b2ac",
+    "url": "/vue-argon-dashboard/css/app.07c3c7ae.css"
   }
 ];

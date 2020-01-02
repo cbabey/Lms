@@ -26,7 +26,7 @@
         </b-col>
         <b-col>
           <b-dropdown text="Select Semsters">
-            <div v-for="ss in allSem" :key="ss.sdid+'a'">
+            <div v-for="(ss,k) in allSem" :key="ss.sdid+k">
               <b-dropdown-item @click="callSemster(ss.sdid)">Semester {{ss.sem_number}}</b-dropdown-item>
             </div>
           </b-dropdown>
@@ -83,11 +83,7 @@
           :data="courcesCom"
         >
           <template slot="columns">
-            <!-- <th>Cource Code</th>
-                     <th>Budget2121</th>
-                     <th>Status</th>
-                     <th>Users</th>
-            <th>Completion</th>-->
+
             <th>Cource Code</th>
             <th>Title</th>
             <th>Credit</th>
@@ -102,14 +98,7 @@
               <div class="media-body">
                 <span class="name mb-0 text-sm">{{row.courceCode}}</span>
               </div>
-              <!-- <div class="media align-items-center">
-                        <a href="#" class="avatar rounded-circle mr-3">
-                          <img alt="Image placeholder" :src="row.img">
-                        </a>
-                        <div class="media-body">
-                          <span class="name mb-0 text-sm">{{row.title}}</span>
-                        </div>
-              </div>-->
+             
             </th>
             <td class="budget">
               <span class="name mb-0 text-sm">{{row.title}}</span>
@@ -127,8 +116,7 @@
               </button>
             </td>
 
-            <!-- <td v-if="row.title[1]=='0'"><button @click="OpenUploadModel(obj)" type="button" class="btn btn-outline-primary"> <span class="glyphicon glyphicon-list-alt"></span> Upload</button>
-            <td v-if="row.title[1]=='1'"><button @click="OpenEditModel(obj)" type="button" class="btn btn-outline-primary"> <span class="glyphicon glyphicon-list-alt"></span> Edit</button>-->
+            
             <td v-if="row.title[1]=='0'">
               <button @click="OpenUploadModel(row)" type="button" class="btn btn-outline-primary">
                 <span class="glyphicon glyphicon-list-alt"></span> Upload
@@ -188,20 +176,17 @@
     <!-- end -->
 
     <!-- Elective cources -->
-    <div v-for="bb in editPanelActivation" :key="bb+'a'">
-      <edit-panel
-        v-if="bb"
-        :active="activeModel"
-        :dataSet="dataObject"
-        :dep="dep"
-        :sem="sem"
-        @close_model="close"
-      ></edit-panel>
-    </div>
+    <edit-panel
+      :active="activeModel"
+      :dataSet="dataObject"
+      :dep="dep"
+      :sem="sem"
+      @close_model="close"
+    ></edit-panel>
 
     <!-- <div v-bind=""></div> -->
 
-    <div v-for="(i,k) in courcesele" :key="i[0].buctNumber+'a'">
+    <div v-for="(i,k) in courcesele" :key="i[0].buctNumber+k+'abc1'">
       <br />
       <div class="card shadow container-fluid" :class="type === 'dark' ? 'bg-default': ''">
         <div class="card-header border-0" :class="type === 'dark' ? 'bg-transparent': ''">
@@ -293,7 +278,7 @@
       </div>
     </div>
 
-    <div fluid v-for="(i,k) in courcesopo" :key="i[0].buctNumber+'b'">
+    <div fluid v-for="(i,k) in courcesopo" :key="i[0].buctNumber+k">
       <br />
       <div class="card shadow container-fluid" :class="type === 'dark' ? 'bg-default': ''">
         <div class="card-header border-0" :class="type === 'dark' ? 'bg-transparent': ''">
@@ -338,21 +323,12 @@
               <!-- <th scope="col">Credit</th> -->
               <!-- <th scope="col">GPA Contribution</th> -->
               <th>Edit</th>
-              <!-- <th></th> -->
             </template>
             <template slot-scope="{row}">
               <th scope="row">
                 <div class="media-body">
                   <span class="name mb-0 text-sm">{{row.courceCode}}</span>
                 </div>
-                <!-- <div class="media align-items-center">
-                        <a href="#" class="avatar rounded-circle mr-3">
-                          <img alt="Image placeholder" :src="row.img">
-                        </a>
-                        <div class="media-body">
-                          <span class="name mb-0 text-sm">{{row.title}}</span>
-                        </div>
-                </div>-->
               </th>
               <td class="budget">
                 <span class="name mb-0 text-sm">{{row.title}}</span>
@@ -500,6 +476,15 @@ export default {
     }
   },
   methods: {
+    makeid(length) {
+   var result           = '';
+   var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+   var charactersLength = characters.length;
+   for ( var i = 0; i < length; i++ ) {
+      result += characters.charAt(Math.floor(Math.random() * charactersLength));
+   }
+   return result;
+},
     generatedStart(val) {
       this.formType = val; //this.$route.params.sem;
       this.dep = this.formType;
@@ -514,7 +499,7 @@ export default {
       //console.log(value);
 
       //this.callSemster(this.allSem[0].sdid);
-      this.dataObject = this.courcesCom[0];
+      // this.dataObject = this.courcesCom[0];
     },
     increseElectives() {
       //{ "courceCode": "CO3203", "type": "E", "buctNumber": 1, "crLimit": 7, "title": "Computer Security", "gpaContribution": 1, "credits": 2, "preVisit": null, "mid": null, "name": null } - credit Limit7  Add New Course
@@ -533,7 +518,8 @@ export default {
 
     lunchEditPanel(obj) {
       this.dataObject = obj;
-      this.editPanelActivation[0] = true;
+      // this.editPanelActivation[0] = true;
+
       this.runit();
       //swal("Good job!", "You clicked the button!", "success", {
       // button: "Aww yiss!",
@@ -549,10 +535,10 @@ export default {
 
         .then(function(response) {
           this.courcesCom = response.body.com;
-          
-          for (var i = 0; i < this.courcesCom.length; i++) {
-            this.editPanelActivation.push(false);
-          }
+
+          // for (var i = 0; i < this.courcesCom.length; i++) {
+          //   this.editPanelActivation.push(false);
+          // }
           this.courcesele = response.body.ele;
           this.courcesopo = response.body.opo;
         });
