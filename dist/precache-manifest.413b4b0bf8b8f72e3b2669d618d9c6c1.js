@@ -12,16 +12,16 @@ self.__precacheManifest = [
     "url": "/vue-argon-dashboard/js/chunk-vendors.bc5c5726.js"
   },
   {
-    "revision": "be997d5226b992ffad34816870c6b7aa",
-    "url": "/vue-argon-dashboard/img/theme/team-2-800x800.jpg"
+    "revision": "54e3f3c414bd8e7234bae3ee3be950e5",
+    "url": "/vue-argon-dashboard/img/theme/team-3-800x800.jpg"
   },
   {
     "revision": "abcc795386f629475710",
     "url": "/vue-argon-dashboard/js/demo.4d84a03a.js"
   },
   {
-    "revision": "54e3f3c414bd8e7234bae3ee3be950e5",
-    "url": "/vue-argon-dashboard/img/theme/team-3-800x800.jpg"
+    "revision": "be997d5226b992ffad34816870c6b7aa",
+    "url": "/vue-argon-dashboard/img/theme/team-2-800x800.jpg"
   },
   {
     "revision": "edc7106b21ec12e57022b2ebd534cd2d",
@@ -44,12 +44,12 @@ self.__precacheManifest = [
     "url": "/vue-argon-dashboard/index.html"
   },
   {
-    "revision": "3b8c576082e5ca27bae21a839f1290f6",
-    "url": "/vue-argon-dashboard/img/theme/sketch.jpg"
-  },
-  {
     "revision": "50dd5fdc839dfc16739b15370650485c",
     "url": "/vue-argon-dashboard/img/theme/react.jpg"
+  },
+  {
+    "revision": "3b8c576082e5ca27bae21a839f1290f6",
+    "url": "/vue-argon-dashboard/img/theme/sketch.jpg"
   },
   {
     "revision": "7253796f762335e7b2ac",
