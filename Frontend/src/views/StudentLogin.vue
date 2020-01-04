@@ -22,9 +22,9 @@
                         <!-- <h4>Admin Panel Login</h4> -->
                         <div class="text-center text-muted mb-4">
                             <!-- <small>Or sign in with credentials</small> -->
-                            <div v-if="isError" class="alert alert-danger" role="alert">
+                            <!-- <div v-if="isError" class="alert alert-danger" role="alert">
                             Username or password wrong
-                            </div>
+                            </div> -->
 
                         </div>
                         <form role="form">
