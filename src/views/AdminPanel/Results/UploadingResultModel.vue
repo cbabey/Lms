@@ -51,10 +51,11 @@
         <div>
           <div>
             <b-container>
+              
               <!-- <span style="background-color:blue; margin:auto">New Batch </span>
               <span>: 2016</span>-->
               <!-- <button type="button" class="btn btn-primary">New Batch <span class="badge">{{year}}</span></button> -->
-
+  <b-alert :show="isNotCsv" variant="danger">Please user the .csv Fileformat to Upload the result</b-alert>
               <b-form-file
                 v-model="file"
                 :state="Boolean(file)"
@@ -64,6 +65,7 @@
 
               <div v-if="file!=null" class="mt-3">Selected file: {{ file ? file.name : '' }}</div>
               <b-button
+                v-if="!isNotCsv"
                 style="margin-top:10px"
                 @click="uploadFile"
                 variant="outline-primary"
@@ -71,9 +73,9 @@
               <!-- <b-button @click="RegisteringStudent" variant="outline-primary">Submit</b-button> -->
             </b-container>
             <br />
-            <span v-if="file!=null">Table Preview</span>
+            <span v-if="file!=null && !isNotCsv">Table Preview</span>
             <hr />
-            <b-container v-if="isTablePrivew" style="height:400px; overflow: auto ">
+            <b-container v-if="isTablePrivew && !isNotCsv" style="height:400px; overflow: auto ">
               <!-- <h6>Number of Students :{{body.length}}</h6> -->
               <table class="table table-hover">
                 <thead>
@@ -107,7 +109,7 @@
           style="margin-left:10px"
         >Close</b-button>
         <b-button
-          v-if="file!=null"
+          v-if="file!=null && !isNotCsv"
           class="float-right"
           @click="RegisteringStudent"
           size="sm"
@@ -131,14 +133,35 @@ export default {
       body: "",
       year: "",
       isTablePrivew: false,
-      modalShow: false
+      modalShow: false,
+      isNotCsv:false
     };
   },
   props: ["show", "dataSet", "dep", "sem", "batch"],
 
+  watch:{
+    file(){
+      // console.log(this.file.name)
+      var temp = this.file.name
+      if (this.file!=null) {
+        temp = temp.split('.')
+        temp = temp[temp.length-1]
+        // console.log(temp)
+        if (temp!="csv" || temp!='csv') {
+          this.isNotCsv=true;
+        }else{
+          this.isNotCsv=false;
+        }
+        // console.log(temp)
+      }
+
+    }
+  },
+
   methods: {
     uploadFile() {
       this.isTablePrivew = true;
+      this.isNotCsv=false;
       // console.log(this.file);
       let formData = new FormData();
       formData.append("file", this.file);

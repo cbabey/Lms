@@ -4,6 +4,16 @@
 
     <b-modal v-model="show" title="Uploading Results" size="lg">
       <b-container fluid>
+        <b-alert
+          :show="isadone"
+          
+          variant="success"
+        >This alert will dismiss after {{ warningMessage }} seconds...</b-alert>
+         <b-alert
+          :show="isaError"
+          
+          variant="warning"
+        >This alert will dismiss after {{ warningMessage }} seconds...</b-alert>
         <b-container>
           <b-badge
             v-if="this.dataSet!=null"
@@ -42,7 +52,7 @@
                 </tr>
               </thead>
               <tbody>
-                <tr v-for="(i,k) in results " :key="i">
+                <tr v-for="(i,k) in results " :key="k">
                   <td>{{i.indexNo}}</td>
                   <td v-if="!isVisbletoEdit[k]">{{i.result}}</td>
                   <td scope="col" v-if="isVisbletoEdit[k]">
@@ -106,7 +116,10 @@ export default {
       year: "",
       isTablePrivew: false,
       results: [],
-      isVisbletoEdit: []
+      isVisbletoEdit: [],
+      warningMessage:"Your Input is not Valied Pleas recheck",
+      isaError:false,
+      isadone:false
     };
   },
   props: ["show", "dataSet", "dep", "sem", "batch"],
@@ -129,6 +142,8 @@ export default {
     open(k) {
       // console.log("value "+k)
       // console.log(this.isVisbletoEdit[k])
+       this.isaError=false;
+        this.isadone=false;
       this.isVisbletoEdit[k] = true;
       // console.log(this.isVisbletoEdit[k])
       this.resultsGet();
@@ -138,6 +153,8 @@ export default {
       //console.log(this.isVisbletoEdit[k])
       this.isVisbletoEdit[k] = false;
       // console.log(this.isVisbletoEdit[k])
+      this.isaError=false;
+        this.isadone=false;
       this.resultsGet();
     },
     resultsGet() {
@@ -170,27 +187,41 @@ export default {
     updateResults(k, index, res) {
       //console.log(this.file);
       let formData = new FormData();
+      // console.log(res);
+      if (
+        res == "A+" ||
+        res == "A" ||
+        res == "A-" ||
+        res == "B+" ||
+        res == "B" ||
+        res == "B-" ||
+        res == "C+" ||
+        res == "C" ||
+        res == "R" ||
+        res == "F"
+      ) {
+        formData.append("index", index); //this.dataSet.courceCode
+        formData.append("code", this.dataSet.courceCode); //this.dataSet.courceCode
+        formData.append("res", res); //this.dataSet.courceCode
 
-      formData.append("index", index); //this.dataSet.courceCode
-      formData.append("code", this.dataSet.courceCode); //this.dataSet.courceCode
-      formData.append("res", res); //this.dataSet.courceCode
-
-      this.$http.post("http://127.0.0.1:8000/api/updateResult", formData).then(
-        function() {
-          // Success
-          //  console.log(response.body)
-          // this.headers=response.body.fuckMe.Headers;
-          // this.body=response.body.fuckMe.body;
-          //alert(response.body);
-          this.resultsGet();
-        },
-        function() {
-          // Error
-          //  console.log(response.data)
-        }
-      );
-
-      this.close(k);
+        this.$http
+          .post("http://127.0.0.1:8000/api/updateResult", formData)
+          .then(
+            function() {
+              this.resultsGet();
+              this.isadone=true;
+              this.isaError=false;
+            },
+            function() {
+              // Error
+              // console.log(response.data);
+            }
+          );
+        this.close(k);
+      } else {
+        this.isaError=true;
+        this.isadone=false;
+      }
     },
     uploadFile() {
       this.isTablePrivew = true;

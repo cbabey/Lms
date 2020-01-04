@@ -7,14 +7,14 @@
           <b-row>
             <b-col cols="3">
               <b-dropdown text="Select Semsters" style="margin-top:10px;">
-                <div v-for="ss in allSem" :key="ss">
+                <div v-for="(ss,k) in allSem" :key="k">
                   <b-dropdown-item @click="callSemster(ss.sdid)">Semester {{ss.sem_number}}</b-dropdown-item>
                 </div>
               </b-dropdown>
             </b-col>
             <b-col>
               <!-- <span style="font-size:22px; margin-top:17px; padding-left:15px;">Semester : {{sem}}</span> -->
-              <h3 style="margin-top:19px;">Semester : {{sem}}</h3>
+              <h3 style="margin-top:19px;">Semester : {{sem}} </h3>
             </b-col>
           </b-row>
         </b-col>
@@ -26,6 +26,7 @@
       </b-row>
     </b-container>
     <!-- <upload-result :show="activatingUploadingResultModel" :dataSet="dataObject" :dep="dep" :sem="sem" :batch="batch" @close_model='closeUploadModel'> </upload-result>      -->
+    
     <!-- <edit-result :show="activatingEditingResultModel" :dataSet="dataObject" :dep="dep" :sem="sem" :batch="batch" @close_model='closeEditModel'> </edit-result>      -->
 
     <!-- <button @click="OpenUploadModel">Fuck</button>   -->
@@ -158,7 +159,7 @@ assignment_turned_in
     </div> -->
 
     <b-container fluid style="text-align:center">
-      <div v-for="i in courcesele" :key="i" class style="width:90%;margin:auto">
+      <div v-for="(i,k) in courcesele" :key="k" class style="width:90%;margin:auto">
         <br />
         <span class="tag is-medium">Elective Bucket : {{i[0].buctNumber}}</span>
 
@@ -205,7 +206,7 @@ assignment_turned_in
     </b-container>
 
     <b-container fluid style="text-align:center">
-      <div v-for="i in courcesopo" :key="i[0].buctNumber" class style="width:90%;margin:auto">
+      <div v-for="(i,k) in courcesopo" :key="i[0].buctNumber+k" class style="width:90%;margin:auto">
         <br />
         <span class="tag is-medium">Optional Bucket : {{i[0].buctNumber}}</span>
 
@@ -221,7 +222,7 @@ assignment_turned_in
             </tr>
           </thead>
           <tbody>
-            <tr v-for="obj in i" :key="obj">
+            <tr v-for="(obj,k) in i" :key="k">
               <th scope="row">{{obj.courceCode}}</th>
               <td>{{obj.title[0]}}</td>
               <!-- <td>{{obj.credits}}</td> -->

@@ -1,7 +1,7 @@
 self.__precacheManifest = [
   {
-    "revision": "1f533d2fdc40493ee834dd8e4288220c",
-    "url": "/vue-argon-dashboard/img/theme/angular.jpg"
+    "revision": "d136a071cf09ba5ab8dc2ada1ab04015",
+    "url": "/vue-argon-dashboard/img/theme/bootstrap.jpg"
   },
   {
     "revision": "cee60cfd101f9b3d2aae0e819ec8b267",
@@ -12,27 +12,27 @@ self.__precacheManifest = [
     "url": "/vue-argon-dashboard/js/chunk-vendors.bc5c5726.js"
   },
   {
-    "revision": "54e3f3c414bd8e7234bae3ee3be950e5",
-    "url": "/vue-argon-dashboard/img/theme/team-3-800x800.jpg"
-  },
-  {
-    "revision": "abcc795386f629475710",
-    "url": "/vue-argon-dashboard/js/demo.4d84a03a.js"
-  },
-  {
     "revision": "be997d5226b992ffad34816870c6b7aa",
     "url": "/vue-argon-dashboard/img/theme/team-2-800x800.jpg"
   },
   {
-    "revision": "edc7106b21ec12e57022b2ebd534cd2d",
-    "url": "/vue-argon-dashboard/img/theme/team-1-800x800.jpg"
+    "revision": "2d5ca80fb180c0f0e53f",
+    "url": "/vue-argon-dashboard/js/demo.5af13039.js"
+  },
+  {
+    "revision": "54e3f3c414bd8e7234bae3ee3be950e5",
+    "url": "/vue-argon-dashboard/img/theme/team-3-800x800.jpg"
   },
   {
     "revision": "66618a418175ddf2ac8c47a241d327a8",
     "url": "/vue-argon-dashboard/img/theme/team-4-800x800.jpg"
   },
   {
-    "revision": "b6216d61c03e6ce0c9aea6ca7808f7ca",
+    "revision": "edc7106b21ec12e57022b2ebd534cd2d",
+    "url": "/vue-argon-dashboard/img/theme/team-1-800x800.jpg"
+  },
+  {
+    "revision": "735ab4f94fbcd57074377afca324c813",
     "url": "/vue-argon-dashboard/robots.txt"
   },
   {
@@ -40,32 +40,32 @@ self.__precacheManifest = [
     "url": "/vue-argon-dashboard/img/theme/vue.jpg"
   },
   {
-    "revision": "641f2f8b5b1de9cb3bd52ceaf8f3cca1",
+    "revision": "5d850b03c4f5f63b49929dc3d0c91198",
     "url": "/vue-argon-dashboard/index.html"
-  },
-  {
-    "revision": "50dd5fdc839dfc16739b15370650485c",
-    "url": "/vue-argon-dashboard/img/theme/react.jpg"
   },
   {
     "revision": "3b8c576082e5ca27bae21a839f1290f6",
     "url": "/vue-argon-dashboard/img/theme/sketch.jpg"
   },
   {
-    "revision": "7253796f762335e7b2ac",
-    "url": "/vue-argon-dashboard/js/app.e73ea9b2.js"
+    "revision": "50dd5fdc839dfc16739b15370650485c",
+    "url": "/vue-argon-dashboard/img/theme/react.jpg"
+  },
+  {
+    "revision": "f2e90757b70726a0d498",
+    "url": "/vue-argon-dashboard/js/app.51cdb5d9.js"
   },
   {
     "revision": "c1733565b32b585676302d4233c39da8",
     "url": "/vue-argon-dashboard/fonts/nucleo-icons.c1733565.eot"
   },
   {
-    "revision": "d136a071cf09ba5ab8dc2ada1ab04015",
-    "url": "/vue-argon-dashboard/img/theme/bootstrap.jpg"
+    "revision": "1f533d2fdc40493ee834dd8e4288220c",
+    "url": "/vue-argon-dashboard/img/theme/angular.jpg"
   },
   {
-    "revision": "0b8a30b10cbe7708d5f3a4b007c1d665",
-    "url": "/vue-argon-dashboard/img/nucleo-icons.0b8a30b1.svg"
+    "revision": "46abbc4a676739dbd61f8a305cb63fd8",
+    "url": "/vue-argon-dashboard/img/nucleo-icons.46abbc4a.svg"
   },
   {
     "revision": "e0ea3f1916671872498288dc2bd40f06",
@@ -96,11 +96,11 @@ self.__precacheManifest = [
     "url": "/vue-argon-dashboard/fonts/nucleo-icons.2569aaea.woff"
   },
   {
-    "revision": "abcc795386f629475710",
-    "url": "/vue-argon-dashboard/css/demo.d6c03d9c.css"
+    "revision": "2d5ca80fb180c0f0e53f",
+    "url": "/vue-argon-dashboard/css/demo.ac1b6d74.css"
   },
   {
-    "revision": "7253796f762335e7b2ac",
-    "url": "/vue-argon-dashboard/css/app.07c3c7ae.css"
+    "revision": "f2e90757b70726a0d498",
+    "url": "/vue-argon-dashboard/css/app.e5db4d43.css"
   }
 ];

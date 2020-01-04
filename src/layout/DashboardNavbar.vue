@@ -45,7 +45,11 @@
                             <span>Support</span>
                         </router-link>
                         <div class="dropdown-divider"></div>
-                        <router-link  to="/login" class="dropdown-item">
+                        <router-link v-if="type!='SU'"  to="/AdminLogin" class="dropdown-item">
+                            <i class="ni ni-user-run"></i>
+                            <span @click="logOut">Logout</span>
+                        </router-link>
+                        <router-link v-if="type=='SU'" to="/login" class="dropdown-item">
                             <i class="ni ni-user-run"></i>
                             <span @click="logOut">Logout</span>
                         </router-link>
@@ -85,6 +89,8 @@
         this.$session.remove('name')
         this.$session.remove('type')
         this.$session.remove('jwt')
+        this.$session.remove('index')
+        this.$session.remove('year')
         
       }
     }

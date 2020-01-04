@@ -89,7 +89,7 @@
             this.$http.post('http://127.0.0.1:8000/api/studentLogin', this.model).then(function (response) {
             // Success
                 //  console.log(response.body)
-                 if (response.status === 200 && 'token' in response.body.success) {
+                 if (response.status === 200 && 'token' in response.body.success && response.data.type=='SU') {
                     this.$session.start()
                     this.$session.set('jwt', response.body.success.token)
                     this.$session.set('type', "SU")

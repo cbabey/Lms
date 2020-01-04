@@ -139,7 +139,7 @@
         this.$http.get('http://localhost:8000/api/gettotalGPA/'+this.testing())
         .then(function(response){
             // console.log(response.body)
-            this.cGPA=response.body.gpa;
+            this.cGPA=(response.body.gpa).toFixed(4)+" ";
            // console.log(this.allSem[0].sdid);
            // this.callSemster(this.allSem[0].sdid);
             
@@ -152,7 +152,9 @@
          
         .then(function(response){
            // this.courcesCom=response.body.com;
-            this.gpaTthis=response.body.gpa;
+            this.gpaTthis=response.body.gpa.toFixed(4)+" "
+    
+    
             //editable tab activation
             
 

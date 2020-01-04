@@ -1,5 +1,19 @@
 <template>
   <div>
+     <b-modal v-model="modalShow">
+      <b-container>
+        <b-row style="margin-left:26px">
+          <b-col cols="2">
+            <i class="material-icons" style="font-size:50px; color:green">check_circle</i>
+          </b-col>
+          <b-col>
+            <span>
+              <p style="font-size:30px">{{printit}}</p>
+            </span>
+          </b-col>
+        </b-row>
+      </b-container>
+    </b-modal>
     <!-- <button type="button" class="btn btn-primary">New Batch <span class="badge">{{year}}</span></button> -->
     <br />
     <a href="#" style="font-size:20px" class="badge badge-success">Regstering Batch Year : {{year}}</a>
@@ -10,6 +24,7 @@
 
       <br />
       <br />
+      <b-alert :show="isNotCsv" variant="danger">Please user the .csv Fileformat to Register the students</b-alert>
       <b-form-file
         v-model="file"
         :state="Boolean(file)"
@@ -18,8 +33,8 @@
       ></b-form-file>
       <div class="mt-3" v-if="isDisplay">Selected file: {{ file ? file.name : '' }}</div>
 
-      <b-button style="margin-top:10px" @click="uploadFile" variant="outline-primary">View Preview</b-button>
-      <b-button style="margin-top:10px" @click="RegisteringStudent" variant="outline-success">Submit</b-button>
+      <b-button v-if="!isNotCsv" style="margin-top:10px" @click="uploadFile" variant="outline-primary">View Preview</b-button>
+      <b-button v-if="!isNotCsv" style="margin-top:10px" @click="RegisteringStudent" variant="outline-success">Submit</b-button>
     </b-container>
     <br />
 
@@ -28,7 +43,7 @@
       <!-- style="height:700px; overflow-y: auto" -->
 
       <!-- <h3>Number of Students :{{body.length}}</h3> -->
-      <div style="height:550px; overflow-y: auto">
+      <div v-if="!isNotCsv" style="height:550px; overflow-y: auto">
         <!-- <b-container> -->
         <table style="font-size:19px; text-align:center" class="table table-hover">
           <thead>
@@ -62,8 +77,29 @@ export default {
       headers: "",
       body: "",
       year: "",
-      isDisplay: false
+      isDisplay: false,
+      isNotCsv:false,
+      printit:"",
+      modalShow:false
     };
+  },
+  watch:{
+    file(){
+      // console.log(this.file.name)
+      var temp = this.file.name
+      if (this.file!=null) {
+        temp = temp.split('.')
+        temp = temp[temp.length-1]
+        // console.log(temp)
+        if (temp!="csv" || temp!='csv') {
+          this.isNotCsv=true;
+        }else{
+          this.isNotCsv=false;
+        }
+        // console.log(temp)
+      }
+
+    }
   },
   created() {
     this.$http
@@ -97,6 +133,8 @@ export default {
       this.$http
         .post("http://127.0.0.1:8000/api/registerNewStudents", formData)
         .then(function() {
+          this.modalShow=true;
+          // this.$router.push('courceDetail-Controller') 
           // Success
           //  console.log(response.body)
           // this.headers=response.body.fuckMe.Headers;
