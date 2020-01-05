@@ -117,10 +117,10 @@
                   </div>
                 </div>
                 <div class="form-group">
-                  <label for="exampleFormControlFile1">Prereque Visit</label>
+                  <label for="exampleFormControlFile1">prerequisite courses</label>
 
                   <div class="dropdown show">
-                    <b-dropdown id="dropdown-1" text="Dropdown Button" class="m-md-2">
+                    <b-dropdown id="dropdown-1" text="prerequisite courses" class="m-md-2">
                       <div v-for="obj in allPreVisit" :key="obj.courceCode">
                         <b-dropdown-item @click="selectPreVisit(obj.courceCode)">{{obj.courceCode}}</b-dropdown-item>
                       </div>
@@ -157,7 +157,7 @@
                                             </div>
                                             
                     </div>-->
-                    <b-dropdown id="dropdown-1" text="Dropdown Button" class="m-md-2">
+                    <b-dropdown id="dropdown-1" text="Select Minor" class="m-md-2">
                       <div v-for="obj in allminors" :key="obj.name">
                         <b-dropdown-item @click="selectMinor(obj.name)">{{obj.name}}</b-dropdown-item>
                       </div>
